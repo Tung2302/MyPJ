@@ -1,0 +1,41 @@
+<header>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
+	  <div class="container-fluid d-flex">
+		<div class="my-logo">
+		  <a class="navbar-brand" href="#">
+			<img src="assets/images/bike-logo-png-16.png" alt="" class="img-fluid-header logo-img-header">
+		  </a>
+		</div>
+		<button class="navbar-toggler navbar-toggler_2" type="button" data-bs-toggle="collapse"
+		  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+		  aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav">
+			<li class="nav-item">
+			  <a class="nav-link active" [routerLink]="['/dashboard']" aria-current="page" href="./">Aministration</a>
+			</li>
+		  </ul>
+		  <ul class="navbar-nav ml-auto">
+			<div class="nav-item">
+			  <a class="nav-link" [routerLink]="['/users']" routerLinkActive="router-link-active" href="#">User</a>
+			</div>
+			<div class="nav-item">
+			  <a class="nav-link" [routerLink]="['/categories']" href="#">Category</a>
+			</div>
+            <div class="nav-item">
+                <a class="nav-link" [routerLink]="['/products']" href="#">Product</a>
+              </div>
+			<div ngbDropdown class="d-inline-block drop-user">
+			  <button class="btn text-stlye-user" id="dropdownBasic1" ngbDropdownToggle>{{sessionUser}}</button>
+			  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+				<a [routerLink]="['/login']" onclick="clearSession()" routerLinkActive="router-link-active" ngbDropdownItem>SignIn</a>
+				<a [routerLink]="['/registeration']" onclick="clearSession()" routerLinkActive="router-link-active" ngbDropdownItem>SignUp</a>
+			  </div>
+			</div>
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+  </header>

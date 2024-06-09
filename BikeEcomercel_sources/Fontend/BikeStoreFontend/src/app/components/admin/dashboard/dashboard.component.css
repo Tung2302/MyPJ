@@ -1,0 +1,13 @@
+.card-body{
+    transition: transform 0.3s ease;
+    height: 120px;
+    border: 2px solid black;
+}
+.card-body:hover{
+    transform: scale(1.1);
+}
+
+.wrapper-container{
+    margin-top: 10%;
+    height: 70vh;
+}

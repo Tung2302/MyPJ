@@ -1,0 +1,41 @@
+.wrapper-container{
+    margin-top: 20vh;
+    height: 80vh;
+}
+.cart-img{
+    width: 100px;
+    height: 60px;
+}
+.buy-button,
+.clear-button,
+.remove-button
+{
+  margin: 10px;
+  background-color: #091a15;
+  border: 1px solid white;
+  border-radius: 6px;
+  color: white;
+
+}
+
+.remove-button:hover
+.buy-button:hover,
+.remove-button:hover{
+  background-color: blue;
+}
+.btn{
+    margin: 10px;
+    width: 140px;
+    height: 40px;
+}
+.quantity_item{
+    margin: 0 auto;
+}
+
+.btn-increase,
+.btn-decrease{
+    margin: 0 10px;
+    max-width: 30px;
+    max-height: 30px;
+}
+

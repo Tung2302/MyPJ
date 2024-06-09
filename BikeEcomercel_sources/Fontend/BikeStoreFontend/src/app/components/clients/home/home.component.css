@@ -1,0 +1,71 @@
+.wrapper-container{
+  margin-top: 6%  !important;
+}
+.card {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.product-image {
+  height: 50%;
+  }
+  
+.card-title{
+  height: 40%;
+  text-align: center;
+}
+
+.btn{
+  width: 108px;
+  height: 40px;
+}
+
+.buy-button,
+.add-button{
+  margin: 10px;
+  background-color: #091a15;
+  border: 1px solid white;
+  border-radius: 6px;
+  color: white;
+}
+
+.buy-button:hover,
+.add-button:hover{
+  background-color: blue;
+}
+
+.product-item{
+  transition: transform 0.3s;
+  
+}
+.product-item:hover{
+  transform: scale(1.1);
+}
+.btn-search{
+  border: 1px solid rgb(81, 66, 66);
+  background: transparent;
+  border-radius: 5px;
+  width: 100px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  transition: 0.5s;
+}
+.btn-search:hover{
+  transition: 0.3s;
+  box-shadow: 0px 2px 24px cyan;
+
+ 
+}
+.form-control{
+  border: 1px solid rgb(81, 66, 66);
+
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  width: 250px;
+  transition: 0.5s;
+}
+.form-control:focus {
+  width: 80%;
+  box-shadow: 0 2px 18px rgba(0, 255, 255, 0.4);
+}
+

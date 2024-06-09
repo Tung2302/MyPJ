@@ -1,0 +1,63 @@
+<app-header ></app-header>
+<body>
+  <div class="wrapper-container">
+    <div class="container">
+      <carousel>
+        <slide *ngFor="let i of arrayI" [active]="i === 1">
+          <img src="assets/images/slideshow/slide0{{ i }}.jpg" class="d-block w-100" alt="...">
+        </slide>
+      </carousel>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-sm-12 text-center">
+          <h2>Our Products</h2>
+        </div>
+      </div>
+      <div class="row">
+        <form class="d-flex mx-auto" (ngSubmit)="getSearchProducts()">
+          <input [(ngModel)]="searchKey" class="form-control me-2" type="search" placeholder="What are you looking for?" aria-label="Search"
+            name="search">
+          <button class="btn-search" type="submit" >Search</button>
+        </form>
+        <div ngbDropdown class="d-inline-block">
+          <h4 class="btn  text-stlye-user" id="dropdownBasic1" ngbDropdownToggle>Categories</h4>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="btn  text-stlye-user" id="dropdownBasic1" ngbDropdownItem>MTB</button>
+            <button class="btn  text-stlye-user" id="dropdownBasic1" ngbDropdownItem>Road</button>
+            <button class="btn  text-stlye-user" id="dropdownBasic1" ngbDropdownItem>Track</button>
+            <button class="btn  text-stlye-user" id="dropdownBasic1" ngbDropdownItem>Fixed Gear</button>
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+        <ng-container *ngFor="let product of products" >
+          <div class=" col-lg-3 col-md-8 col-sm-12  product-item mt-4 card-wrapper">
+            <div class="h-100 shadow-sm">
+              <img src="assets/images/product/{{product.image}}" class="card-img-top product-image" alt="">
+              <div class="card-body">
+                <div class="clearfix mb-3">
+                  <span class="float-start badge rounded-pill bg-primary">{{product.name}}-{{
+                    product.category?.categoryName }}</span>
+                  <span class="float-end price-hp">{{product.cost}}&dollar;</span>
+                </div>
+                <h5 class="card-title">
+                  <div>Size:{{product.size}}</div>
+                  <div>{{product.description}}.</div>
+                </h5>
+                <div class="text-center my-4">
+                  <button [routerLink]="['/detail']" [queryParams]="{product_id: product.id}" routerLinkActive="router-link-active" class="buy-button btn">Buy Now</button>
+                  <button (click)="addToCart(product.id)" class="add-button btn">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+</body>
+<app-footer></app-footer>

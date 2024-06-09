@@ -1,0 +1,53 @@
+<app-header></app-header>
+<main>
+    <div class="wrapper-container text-center">
+        <div class="container">
+
+            <div class="row">
+                <h2 class="text-primary">Total price: {{total}}$</h2>
+                <h1 class="col-12 mt-3"> Your Cart List:</h1>
+            </div>
+            <div class="row">
+                <form action="">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let item of cartList">
+                                <td>{{ item?.productId }}</td>
+                                <td><img src="assets/images/product/{{ item?.image }}" alt="" class="cart-img"></td>
+                                <td>{{ item?.name }}</td>
+                                <td >
+                                    <div class="d-flex ml-3 justify-content-center mt-3" quantity_item>
+                                        <button class="btn-decrease" (click)="decreaseQuantity(item?.quantity,item?.productId)">-</button>
+                                        <div>{{item?.quantity}}</div>
+                                        <button class="btn-increase" (click)="increaseQuantity(item?.quantity,item?.productId)">+</button>
+                                    </div>
+                                    
+                                </td>
+                                <td>{{ item?.price }}</td>
+                                <td><button (click)="removeCart(item?.productId)"
+                                        class="btn btn-primary remove-btn btn-warning">Remove</button></td>
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+                    <button class="btn btn-primary buy-btn">Buy</button>
+                    <button (click)="clearAllCart()" class="btn btn-danger clear-btn">Remove All</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+<app-footer></app-footer>

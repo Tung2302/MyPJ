@@ -1,0 +1,42 @@
+<app-header></app-header>
+<main>
+    <div class="wrapper-container text-center">
+        <div class="container">
+
+            <div class="row">
+                <h1 class="col-12"> Your Product:</h1>
+            </div>
+            <div class="row">
+                <form action="">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Cost</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                        </thead>
+            
+                        <tbody>
+                            <tr *ngIf="buyProduct">
+                                <td><img src="assets/images/product/{{ buyProduct.image }}" alt="" class="buyProduct-img"></td>
+                                <td>{{ buyProduct.cost }}</td>
+                                <td>{{ buyProduct.size }}</td>
+                                <td>{{ buyProduct.quantity }}</td>
+                                <td>{{ buyProduct.description }}</td>
+                              </tr>
+            
+                        </tbody>
+            
+            
+                    </table>
+                    <button class="btn btn-primary">Order</button>
+               </form>
+            </div>
+        </div>    
+    </div>
+    
+</main>
+<app-footer></app-footer>

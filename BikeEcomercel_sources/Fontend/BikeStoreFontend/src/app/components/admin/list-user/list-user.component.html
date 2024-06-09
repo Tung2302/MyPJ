@@ -1,0 +1,172 @@
+<app-admin-header></app-admin-header>
+<div class="container" id="main-container">
+   <div class="row">
+      <div class="col-sm">
+         <button (click)="onOpenModal(null,'add' )" class="btn btn-success">Add User</button>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Password</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">PhoneNb</th>
+                  <th scope="col">Trạng thái</th>
+                  <th>Sửa</th>
+                  <th>Xóa</th>
+               </tr>
+            </thead>
+
+            <tbody>
+               <tr *ngFor="let user of users">
+                  <td>{{user.id}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.password}}</td>
+                  <td>{{user.role}}</td>
+                  <td>{{user.phone}}</td>
+                  <td>{{user.disable}}</td>
+                  <td>
+                     <button (click)="onOpenModal(user,'edit' )" class="btn btn-primary">Edit</button>
+                  </td>
+                  <td>
+                     <button (click)="onOpenModal(user,'delete' )" class="btn btn-danger">Delete</button>
+                  </td>
+               </tr>
+
+            </tbody>
+
+
+         </table>
+      </div>
+   </div>
+   <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="deleteModelLabel">Delete User</h5>
+               <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <p>Are you sure you want to delete user {{ deleteUser?.first_name }}?</p>
+            </div>
+            <div class="modal-footer">
+               <button (click)="onCloseModal()" type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+               <button (click)="onDeleteUser(deleteUser?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Add Employee Modal -->
+   <div class="modal fade " id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="addEmployeeModalLabel">Add User</h5>
+               <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <form #addForm="ngForm" (ngSubmit)="onAddUser(addForm)">
+                  <div class="form-group">
+                     <label for="email">Email Address</label>
+                     <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email"
+                        required>
+                  </div>
+                  <div class="form-group">
+                     <label for="password">Password</label>
+                     <input type="text" ngModel name="password" class="form-control" id="password"
+                        placeholder="password" required>
+                  </div>
+                  <div class="form-group">
+                     <label for="phone">Phone</label>
+                     <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="phone"
+                        required>
+                  </div>
+                  <div class="form-group">
+                     <label for="role">Role</label>
+                     <input type="text" ngModel name="role" class="form-control" id="Role" placeholder="Role" required>
+                  </div>
+                  <div class="form-group">
+                     <label for="name">First name</label>
+                     <input type="text" ngModel name="first_name" class="form-control" id="first_name"
+                        placeholder="First name" required>
+                  </div>
+                  <div class="form-group">
+                     <label for="name">Last name</label>
+                     <input type="text" ngModel name="last_name" class="form-control" id="last_name"
+                        placeholder="Last name" required>
+                  </div>
+                  <div class="form-group">
+                     <label for="disable">Disable</label>
+                     <input type="text" ngModel name="disable" class="form-control" id="disable" placeholder="Disable"
+                        required>
+                  </div>
+                  <div class="modal-footer">
+                     <button (click)="onCloseModal()" type="button" id="add-employee-form" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                     <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Edit Modal -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="updateUserModalLabel">Edit Employee {{editUser?.first_name}}</h5>
+            <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #editForm="ngForm">
+               <div class="form-group">
+                  <label for="id">Id</label>
+                  <input type="text" ngModel="{{editUser?.id}}" readonly name="id" class="form-control" id="id" placeholder="Id">
+               </div>
+               
+               <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" ngModel="{{editUser?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Password</label>
+                  <input type="text" ngModel="{{editUser?.password}}" name="password" class="form-control" id="password" placeholder="Password">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text" ngModel="{{editUser?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Role</label>
+                  <input type="text" ngModel="{{editUser?.role}}" name="role" class="form-control" id="role" placeholder="Role">
+               </div>
+               <div class="form-group">
+                  <label for="phone">First Name</label>
+                  <input type="text" ngModel="{{editUser?.first_name}}" name="first_name" class="form-control" id="first_name" placeholder="First Name">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Last Name</label>
+                  <input type="text" ngModel="{{editUser?.last_name}}" name="last_name" class="form-control" id="last_name" placeholder="Last Name">
+               </div>
+               <div class="form-group">
+                  <label for="phone">Disable</label>
+                  <input type="text" ngModel="{{editUser?.disable}}" name="disable" class="form-control" id="disable" placeholder="Disable">
+               </div>
+               <div class="modal-footer">
+                  <button (click)="onCloseModal()" type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                  <button (click)="onUpdateUser(editForm)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+ </div>

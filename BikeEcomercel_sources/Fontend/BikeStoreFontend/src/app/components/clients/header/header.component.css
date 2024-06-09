@@ -1,0 +1,128 @@
+:root{
+    --primary-color : #022642;
+    --cyan-color : cyan;
+    --fontfamily-primary : 'Oswald', sans-serif;
+}
+
+body{
+    font-family: 'Numans', sans-serif !important;
+}
+.bg-body-tertiary{
+    background-color:#fff !important;
+}
+
+.my-logo{
+    max-width: 20%;
+}
+
+.nav-link{
+    text-transform: uppercase;
+}
+
+.active{
+    font-weight: bold;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.my-title{
+    overflow-y: hidden;
+}
+.img-fluid-header {
+    width: 80px;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #091a15 !important;
+    border-radius: unset !important;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.4);
+    z-index: 999;
+}
+.testscrool{
+    min-height: 1000px;
+}
+.text-stlye-user{
+	color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    display: inline-block;
+    
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    text-shadow: red -2px 0,cyan 2px 0;
+ 
+}
+
+.btn.btn-outline-success:hover{
+    box-shadow: red -2px 0,cyan 2px 0;
+}
+
+
+button.navbar-toggler.navbar-toggler_2 {
+    background-color: #fff;
+}
+
+.navbar-toggler:focus{
+    transition: 0.3s;
+    box-shadow: 0px 2px 24px cyan;
+}
+.carousel{
+    margin-top: 112px;
+}
+button.navbar-toggler.navbar-toggler_2.collapsed{
+    box-shadow: unset;
+
+}
+h4.text-center.text-uppercase.fw-bold {
+    color: #fff;
+    font-size: 25px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set height to 100% of viewport height */
+  }
+main{
+    flex: 1; 
+}
+.logo-img-header{
+    background-color: transparent;
+    object-fit: cover;
+}
+.navbar-brand{
+  background-color: khaki;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.drop-user{
+    margin-left: 100vh;
+}
+
+/* cart */
+.cart_text{
+    display: flex;
+    align-items: center;
+}
+.cart_cout
+{
+    
+	font-size: 16px;
+	color: #fff;
+   
+	
+}

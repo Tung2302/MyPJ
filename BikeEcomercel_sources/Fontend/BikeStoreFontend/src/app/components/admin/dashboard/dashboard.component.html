@@ -1,0 +1,61 @@
+<app-admin-header></app-admin-header>
+<main>
+    <div class="wrapper-container">
+        <div class="container">
+
+            <div class="row mt-5 mx-5">
+                <h4 class="mb-2">Wellcome {{ role }}</h4>
+                <div class="col-sm-4  card-dashboard">
+                    <a routerLink="/users" class="text-decoration-none">
+                        <div class="card mb-2" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">
+                                    <a href='' class='text-decoration-none'>Users</a>
+                                </h5>
+                                <h5 class="h1 text-center">
+                                    <div>{{usersCount}}</div>
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="col-sm-4  card-dashboard">
+                    <a routerLink="/categories" class="text-decoration-none">
+                        <div class="card mb-2" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">
+                                    <a href="" class="text-decoration-none">Categories</a>
+                                </h5>
+                                <h5 class="h1 text-center">
+                                    <div>{{countCategories}}</div>
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4  ">
+                    <a routerLink="/products" class="text-decoration-none">
+                        <div class="card mb-2" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">
+                                    <a href="" class="text-decoration-none">Products</a>
+                                </h5>
+
+                                <h5 class="h1 text-center">
+                                    <div>{{countProducts}}</div>
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</main>
+<app-footer></app-footer>

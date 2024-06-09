@@ -1,0 +1,117 @@
+<app-admin-header ></app-admin-header>
+<div class="container" id="main-container">
+    <div class="row">
+        <div class="col-sm">
+            <button (click)="onOpenModal(null,'add' )" class="btn btn-success">Add Category</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Category Name</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let category of categories">
+                      <td>{{ category.categoryId }}</td>
+                      <td>{{ category.categoryName }}</td>
+                      <td>
+                        <button (click)="onOpenModal(category, 'edit')" class="btn btn-primary">Edit</button>
+                      </td>
+                      <td>
+                        <button (click)="onOpenModal(category, 'delete')" class="btn btn-danger">Delete</button>
+                      </td>
+                    </tr>
+                  </tbody>
+
+
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModelLabel">Delete Category</h5>
+                    <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete Category {{ deleteCategory?.categoryName }}?</p>
+                </div>
+                <div class="modal-footer">
+                    <button (click)="onCloseModal()" type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button (click)="onDeleteCategory(deleteCategory?.categoryId)" class="btn btn-danger">Delete</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryModalLabel">Add Category</h5>
+                    <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #addCategoryForm="ngForm" (ngSubmit)="onAddCategory(addCategoryForm)">
+                        <div class="form-group">
+                            <label for="categoryName">Category Name</label>
+                            <input type="text" ngModel name="categoryName" class="form-control" id="categoryName"
+                                placeholder="Category Name" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button (click)="onCloseModal()" type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="updateCategoryModal" tabindex="-1" role="dialog"
+        aria-labelledby="categoryEditModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateCategoryModalLabel">Edit Category {{editCategory?.categoryName}}</h5>
+                    <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #editCategoryForm="ngForm">
+                        <div class="form-group">
+                            <label for="categoryId">Category ID</label>
+                            <input type="text" ngModel="{{editCategory?.categoryId}}" readonly name="categoryId"
+                                class="form-control" id="categoryId" placeholder="Category ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryName">Category Name</label>
+                            <input type="text" ngModel="{{editCategory?.categoryName}}" name="categoryName" class="form-control"
+                                id="categoryName" placeholder="Category Name">
+                        </div>
+                        <div class="modal-footer">
+                            <button (click)="onCloseModal()" type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Close</button>
+                            <button (click)="onUpdateCategory(editCategoryForm)" data-dismiss="modal"
+                                class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
